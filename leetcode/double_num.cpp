@@ -3,19 +3,20 @@
 using namespace std;
 
 struct ListNode {
-    int val;
-    ListNode* next;
-    ListNode() : val(0), next(nullptr) {}
-    ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode* next) : val(x), next(next) {}
-};
+      int val;
+      ListNode *next;
+      ListNode() : val(0), next(nullptr) {}
+      ListNode(int x) : val(x), next(nullptr) {}
+      ListNode(int x, ListNode *next) : val(x), next(next) {}
+  };
 
-ListNode* reverseList(ListNode* head) {
-    ListNode* prev = nullptr;
+
+  ListNode* reversedList(ListNode* head) {
+    ListNode* prev = NULL;
     ListNode* current = head;
-    ListNode* next = nullptr;
+    ListNode* next = NULL;
 
-    while (current != nullptr) {
+    while (current != NULL) {
         next = current->next;
         current->next = prev;
         prev = current;
@@ -25,22 +26,20 @@ ListNode* reverseList(ListNode* head) {
 }
 
 ListNode* doubleIt(ListNode* head) {
-    ListNode* reversed = reverseList(head);
-    ListNode* current = reversed;
-    ListNode* prev = nullptr;
+    head = reversedList(head);
+
+    ListNode* current = head;
     int carry = 0;
 
-    while (current != nullptr) {
+    while (current != NULL) {
         int sum = current->val * 2 + carry;
-        current->val = sum % 10;
-        carry = sum / 10;
-        prev = current;
+        current->val = sum % 10; 
+        carry = sum / 10; 
+        if (carry > 0 && current->next == NULL) {
+            current->next = new ListNode(carry);
+            break; 
+        }
         current = current->next;
     }
-
-    if (carry > 0) {
-        prev->next = new ListNode(carry);
-    }
-
-    return reverseList(reversed);
+    return reversedList(head);
 }
