@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <map>
 
 using namespace std;
 
@@ -22,6 +23,7 @@ vector<int> twoSumBruteForce(vector<int> &nums, int target)
     return newSum;
 }
 
+// Seen solution
 vector<int> twoSumOptimized(vector<int> &nums, int target)
 {
     vector<int> newSum;

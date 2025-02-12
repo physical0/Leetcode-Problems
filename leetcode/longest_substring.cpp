@@ -1,7 +1,14 @@
+#include <iostream>
+#include <string>
+#include <map>
+#include <algorithm>
+
+using namespace std;
+
 class Solution
 {
 public:
-    // First Attempt, 179/987 cases successful
+    // First Attempt, 179/987 cases successful (O(N) / O(N^2))
     int lengthOfLongestSubstring(string s)
     {
         map<char, int> hashmap;

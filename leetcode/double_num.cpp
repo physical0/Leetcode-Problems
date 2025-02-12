@@ -11,6 +11,7 @@ struct ListNode
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
+// Seen solution
 ListNode *reversedList(ListNode *head)
 {
     ListNode *prev = NULL;

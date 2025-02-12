@@ -9,6 +9,7 @@ struct ListNode
 
 ListNode *addTwoNumbers(ListNode *l1, ListNode *l2)
 {
+    // Second attempt, seen solution
     ListNode *current = new ListNode();
     ListNode *head = current;
     int carry = 0;
